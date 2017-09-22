@@ -19,9 +19,9 @@ RUN sed -i 's/\(logger.handlers=CONSOLE\),FILE/\1/' keycloak/standalone/configur
 
 ENV JBOSS_HOME /opt/jboss/keycloak
 
-ADD https://circleci.com/api/v1/project/redhat-ipaas/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/openshift-provider.jar /opt/jboss/keycloak/providers/
-ADD https://circleci.com/api/v1/project/redhat-ipaas/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/ipaas-theme.jar /opt/jboss/keycloak/providers/
-ADD https://circleci.com/api/v1/project/redhat-ipaas/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/autolink-idp.jar /opt/jboss/keycloak/providers/
+ADD https://circleci.com/api/v1/project/syndesisio/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/openshift-provider.jar /opt/jboss/keycloak/providers/
+ADD https://circleci.com/api/v1/project/syndesisio/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/ipaas-theme.jar /opt/jboss/keycloak/providers/
+ADD https://circleci.com/api/v1/project/syndesisio/keycloak-customizations/latest/artifacts/0/\$CIRCLE_ARTIFACTS/autolink-idp.jar /opt/jboss/keycloak/providers/
 #ADD openshift-provider.jar /opt/jboss/keycloak/providers/
 #ADD ipaas-theme.jar /opt/jboss/keycloak/providers/
 #ADD autolink-idp.jar /opt/jboss/keycloak/providers/
