@@ -24,8 +24,8 @@
   <groupId>com.redhat.ipaas.keycloak</groupId>
   <artifactId>parent-openshift</artifactId>
   <packaging>pom</packaging>
-  <name>iPaaS Keycloak parent</name>
-  <description>Keycloak customizations for iPaaS</description>
+  <name>iPaaS Keycloak Openshift parent</name>
+  <description>Keycloak Openshift for iPaaS</description>
   <version>0.1-SNAPSHOT</version>
 
   <url>https://redhat.com/</url>
@@ -56,9 +56,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git@github.com:redhat-ipaas/keycloak-customizations.git</connection>
-    <developerConnection>scm:git:git@github.com:redhat-ipaas/keycloak-customizations.git</developerConnection>
-    <url>http://github.com/redhat-ipaas/keycloak-customizations/</url>
+    <connection>scm:git:git@github.com:syndesisio/keycloak-openshift.git</connection>
+    <developerConnection>scm:git:git@github.com:syndesisio/keycloak-openshift.git</developerConnection>
+    <url>http://github.com/syndesisio/keycloak-openshift/</url>
     <tag>${project.version}</tag>
   </scm>
 
@@ -144,12 +144,34 @@
             <image>
               <name>syndesisio/${project.artifactId}</name>
               <build>
-<!--                <dockerFile>../src/main/docker/Dockerfile</dockerFile>
-                <dockerFileDir>${project.basedir}/target</dockerFileDir>-->
               </build>
             </image>
           </images>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>auto-clean</id>
+            <phase>package</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <filesets>
+                <fileset>
+                  <directory>${project.basedir}/src/main/docker</directory>
+                  <includes>
+                    <include>*.jar</include>
+                  </includes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
