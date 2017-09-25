@@ -21,8 +21,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.redhat.ipaas.keycloak</groupId>
-  <artifactId>parent-openshift</artifactId>
+  <groupId>io.syndesis</groupId>
+  <artifactId>parent-keycloak-openshift</artifactId>
   <packaging>pom</packaging>
   <name>iPaaS Keycloak Openshift parent</name>
   <description>Keycloak Openshift for iPaaS</description>
@@ -49,9 +49,9 @@
   <developers>
     <developer>
       <id>geeks</id>
-      <name>Red Hat iPaaS Development Team</name>
-      <organization>Red Hat</organization>
-      <organizationUrl>https://redhat.com/</organizationUrl>
+      <name>Syndesis Development Team</name>
+      <organization>Syndesis</organization>
+      <organizationUrl>https://syndesis.io</organizationUrl>
     </developer>
   </developers>
 
@@ -63,7 +63,7 @@
   </scm>
 
   <properties>
-    <keycloak-customizations.version>0.1.0.fuse-000003</keycloak-customizations.version>
+    <keycloak-customizations.version>0.1-SNAPSHOT</keycloak-customizations.version>
     <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
     <docker.maven.plugin.fabric8.version>0.22.1</docker.maven.plugin.fabric8.version>
 
@@ -74,17 +74,17 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.redhat.ipaas.keycloak.authenticators</groupId>
+        <groupId>io.syndesis.keycloak.authenticators</groupId>
         <artifactId>autolink-idp</artifactId>
         <version>${keycloak-customizations.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.redhat.ipaas.keycloak.providers</groupId>
+        <groupId>io.syndesis.keycloak.providers</groupId>
         <artifactId>openshift</artifactId>
         <version>${keycloak-customizations.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.redhat.ipaas.keycloak</groupId>
+        <groupId>io.syndesis.keycloak</groupId>
         <artifactId>theme</artifactId>
         <version>${keycloak-customizations.version}</version>
       </dependency>
@@ -107,17 +107,17 @@
             <configuration>
               <artifactItems>
                 <artifactItem>
-                  <groupId>com.redhat.ipaas.keycloak.authenticators</groupId>
+                  <groupId>io.syndesis.keycloak.authenticators</groupId>
                   <artifactId>autolink-idp</artifactId>
                   <destFileName>autolink-idp.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
-                  <groupId>com.redhat.ipaas.keycloak.providers</groupId>
+                  <groupId>io.syndesis.keycloak.providers</groupId>
                   <artifactId>openshift</artifactId>
                   <destFileName>openshift-provider.jar</destFileName>
                 </artifactItem>
                 <artifactItem>
-                  <groupId>com.redhat.ipaas.keycloak</groupId>
+                  <groupId>io.syndesis.keycloak</groupId>
                   <artifactId>theme</artifactId>
                   <destFileName>ipaas-theme.jar</destFileName>
                 </artifactItem>
@@ -144,19 +144,19 @@
             <image>
               <name>syndesisio/${project.artifactId}</name>
               <build>
+                <dockerFile>DockerFile</dockerFile>
               </build>
             </image>
           </images>
         </configuration>
       </plugin>
-
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>2.2</version>
         <executions>
           <execution>
             <id>auto-clean</id>
-            <phase>package</phase>
+            <phase>install</phase>
             <goals>
               <goal>clean</goal>
             </goals>
