@@ -24,8 +24,8 @@
   <groupId>io.syndesis</groupId>
   <artifactId>parent-keycloak-openshift</artifactId>
   <packaging>pom</packaging>
-  <name>iPaaS Keycloak Openshift parent</name>
-  <description>Keycloak Openshift for iPaaS</description>
+  <name>Syndesis Keycloak Openshift parent</name>
+  <description>Keycloak server for Openshift</description>
   <version>0.1-SNAPSHOT</version>
 
   <url>https://redhat.com/</url>
