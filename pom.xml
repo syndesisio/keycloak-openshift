@@ -26,7 +26,7 @@
   <packaging>pom</packaging>
   <name>Syndesis Keycloak Openshift parent</name>
   <description>Keycloak server for Openshift</description>
-  <version>0.1-SNAPSHOT</version>
+  <version>1.0.fuse-000011</version>
 
   <url>https://redhat.com/</url>
   <inceptionYear>2016</inceptionYear>
@@ -63,7 +63,7 @@
   </scm>
 
   <properties>
-    <keycloak-customizations.version>0.1-SNAPSHOT</keycloak-customizations.version>
+    <keycloak-customizations.version>0.1.0.fuse-000014</keycloak-customizations.version>
     <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
     <docker.maven.plugin.fabric8.version>0.22.1</docker.maven.plugin.fabric8.version>
 
@@ -142,9 +142,9 @@
           </goals>
           <images>
             <image>
-              <name>syndesisio/${project.artifactId}</name>
+              <name>syndesisio/keycloak-openshift</name>
               <build>
-                <dockerFile>DockerFile</dockerFile>
+                <dockerFile>Dockerfile</dockerFile>
               </build>
             </image>
           </images>
